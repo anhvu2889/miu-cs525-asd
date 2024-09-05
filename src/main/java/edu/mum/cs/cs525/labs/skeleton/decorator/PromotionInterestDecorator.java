@@ -11,11 +11,6 @@ public abstract class PromotionInterestDecorator implements InterestStrategy {
         this.baseInterestStrategy = baseInterestStrategy;
     }
 
-    @Override
-    public String getDescription() {
-        return getBaseInterestStrategy().getDescription();
-    }
-
     public InterestStrategy getBaseInterestStrategy() {
         return baseInterestStrategy;
     }

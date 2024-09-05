@@ -17,7 +17,7 @@ public class LoyaltyPromotionInterestDecorator extends PromotionInterestDecorato
     @Override
     public String getDescription() {
         return STR."""
-        \{super.getDescription()}
+        \{getBaseInterestStrategy().getDescription()}
         then decorated: LoyaltyPromotionInterest""";
     }
 }
