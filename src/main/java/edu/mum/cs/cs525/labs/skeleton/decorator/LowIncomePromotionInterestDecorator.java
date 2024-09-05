@@ -4,7 +4,7 @@ import edu.mum.cs.cs525.labs.skeleton.strategy.InterestStrategy;
 
 public class LowIncomePromotionInterestDecorator extends PromotionInterestDecorator {
 
-    private static final double ADD_ON_INTEREST_RATE = 0.02;
+    public static final double ADD_ON_INTEREST_RATE = 0.02;
 
     public LowIncomePromotionInterestDecorator(InterestStrategy baseInterestStrategy) {
         super(baseInterestStrategy);
