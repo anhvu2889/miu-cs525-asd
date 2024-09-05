@@ -1,0 +1,13 @@
+@startuml
+[-> AccountService++ : addInterest()
+AccountService -> AccountDAO++: getAccounts()
+return accounts
+loop for each account
+AccountService -> Account++: addInterest()
+Account -> InterestStrategy++: calculateInterest()
+return interest
+Account -> Account: add "Add interest" entry
+deactivate Account
+end
+deactivate AccountService
+@enduml
