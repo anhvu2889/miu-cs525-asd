@@ -12,7 +12,7 @@ public class LowIncomePromotionInterestDecorator extends PromotionInterestDecora
 
     @Override
     public double calculateInterest(double balance) {
-        return getBaseInterestStrategy().calculateInterest(balance) * ADD_ON_INTEREST_RATE;
+        return getBaseInterestStrategy().calculateInterest(balance) + balance * ADD_ON_INTEREST_RATE;
     }
 
     @Override
