@@ -1,7 +1,11 @@
 package edu.mum.cs.cs525.labs.skeleton;
 
+import edu.mum.cs.cs525.labs.skeleton.decorator.LowIncomePromotionInterestDecorator;
+import edu.mum.cs.cs525.labs.skeleton.decorator.LoyaltyPromotionInterestDecorator;
+import edu.mum.cs.cs525.labs.skeleton.decorator.MilitaryVeteranPromotionInterestDecorator;
 import edu.mum.cs.cs525.labs.skeleton.observer.*;
 import edu.mum.cs.cs525.labs.skeleton.strategy.CheckingInterestStrategy;
+import edu.mum.cs.cs525.labs.skeleton.strategy.InterestStrategy;
 import edu.mum.cs.cs525.labs.skeleton.strategy.SavingInterestStrategy;
 
 public class Application {
@@ -20,10 +24,16 @@ public class Application {
 
 		// create 2 accounts;
 		Account checkingAccount = accountService.createAccount("1263862", "Frank Brown");
-		checkingAccount.setInterestStrategy(new CheckingInterestStrategy());
+		InterestStrategy specialCheckingInterest = new MilitaryVeteranPromotionInterestDecorator(new CheckingInterestStrategy());
+		checkingAccount.setInterestStrategy(specialCheckingInterest);
+		System.out.println(specialCheckingInterest.getDescription());
+		System.out.println();
 
+		InterestStrategy superDealInterest = new LowIncomePromotionInterestDecorator(new LoyaltyPromotionInterestDecorator(new SavingInterestStrategy()));
+		System.out.println(superDealInterest.getDescription());
+		System.out.println();
 		Account savingAccount = accountService.createAccount("4253892", "John Doe");
-		savingAccount.setInterestStrategy(new SavingInterestStrategy());
+		savingAccount.setInterestStrategy(superDealInterest);
 
 		// use account 1;
 		accountService.deposit("1263862", 240);

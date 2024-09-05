@@ -18,4 +18,9 @@ public class SavingInterestStrategy implements InterestStrategy {
         }
         return interestRate * balance;
     }
+
+    @Override
+    public String getDescription() {
+        return "SavingInterestStrategy";
+    }
 }
