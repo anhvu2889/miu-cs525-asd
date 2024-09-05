@@ -18,7 +18,7 @@ public class LowIncomePromotionInterestDecorator extends PromotionInterestDecora
     @Override
     public String getDescription() {
         return STR."""
-        \{super.getDescription()}
+        \{getBaseInterestStrategy().getDescription()}
         then decorated: LowIncomePromotionInterest""";
     }
 }
