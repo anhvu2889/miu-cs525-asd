@@ -8,7 +8,7 @@ import java.security.Provider;
 
 public abstract class ServiceFactory {
 
-    public AccountService getAccountService() {
+    public final AccountService getAccountService() {
         return new AccountServiceImpl(createDAOFactory().createAccountDAO());
     }
 
