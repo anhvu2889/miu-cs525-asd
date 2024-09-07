@@ -3,9 +3,8 @@ package edu.mum.cs.cs525.labs.skeleton;
 import edu.mum.cs.cs525.labs.skeleton.decorator.LowIncomePromotionInterestDecorator;
 import edu.mum.cs.cs525.labs.skeleton.decorator.LoyaltyPromotionInterestDecorator;
 import edu.mum.cs.cs525.labs.skeleton.decorator.MilitaryVeteranPromotionInterestDecorator;
-import edu.mum.cs.cs525.labs.skeleton.factory.AccountDAOFactory;
-import edu.mum.cs.cs525.labs.skeleton.factory.InMemoryAccountDAOFactory;
-import edu.mum.cs.cs525.labs.skeleton.factory.MockAccountDAOFactory;
+import edu.mum.cs.cs525.labs.skeleton.factory.InMemoryServiceFactory;
+import edu.mum.cs.cs525.labs.skeleton.factory.ServiceFactory;
 import edu.mum.cs.cs525.labs.skeleton.observer.*;
 import edu.mum.cs.cs525.labs.skeleton.strategy.CheckingInterestStrategy;
 import edu.mum.cs.cs525.labs.skeleton.strategy.InterestStrategy;
@@ -22,11 +21,9 @@ public class Application {
         accountEventManager.subscribe(emailSender, AccountEventType.ACCOUNT_OPENED);
         accountEventManager.subscribe(smsSender, AccountEventType.ALL);
 
-        AccountDAOFactory accountDAOFactory = new InMemoryAccountDAOFactory();
-//        AccountDAOFactory accountDAOFactory = new MockAccountDAOFactory();
+        ServiceFactory serviceFactory = new InMemoryServiceFactory();
 
-        AccountDAO accountDAO = accountDAOFactory.createAccountDAO();
-        AccountService accountService = new AccountServiceImpl(accountDAO);
+        AccountService accountService = serviceFactory.getAccountService();
         accountService.setAccountEventManager(accountEventManager);
 
         // create 2 accounts;
