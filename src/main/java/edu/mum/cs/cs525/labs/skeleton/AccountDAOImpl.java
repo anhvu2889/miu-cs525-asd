@@ -4,6 +4,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class AccountDAOImpl implements AccountDAO {
+
+    private static AccountDAOImpl uniqueInstance;
+
+    private AccountDAOImpl() {
+
+    }
+
+    public static AccountDAOImpl getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new AccountDAOImpl();
+        }
+        return uniqueInstance;
+    }
+
     Collection<Account> accounts = new ArrayList<Account>();
 
     public void saveAccount(Account account) {

@@ -19,7 +19,7 @@ public class AccountServiceImpl implements AccountService {
     private InterestStrategy interestStrategy;
 
     public AccountServiceImpl() {
-        accountDAO = new AccountDAOImpl();
+        accountDAO = AccountDAOImpl.getInstance();
     }
 
     public AccountServiceImpl(AccountDAO accountDAO) {
