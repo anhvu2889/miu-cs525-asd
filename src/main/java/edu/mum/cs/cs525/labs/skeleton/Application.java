@@ -3,7 +3,7 @@ package edu.mum.cs.cs525.labs.skeleton;
 import edu.mum.cs.cs525.labs.skeleton.decorator.LowIncomePromotionInterestDecorator;
 import edu.mum.cs.cs525.labs.skeleton.decorator.LoyaltyPromotionInterestDecorator;
 import edu.mum.cs.cs525.labs.skeleton.decorator.MilitaryVeteranPromotionInterestDecorator;
-import edu.mum.cs.cs525.labs.skeleton.factory.InMemoryServiceFactory;
+import edu.mum.cs.cs525.labs.skeleton.factory.ProdServiceFactory;
 import edu.mum.cs.cs525.labs.skeleton.factory.ServiceFactory;
 import edu.mum.cs.cs525.labs.skeleton.observer.*;
 import edu.mum.cs.cs525.labs.skeleton.strategy.CheckingInterestStrategy;
@@ -21,7 +21,7 @@ public class Application {
         accountEventManager.subscribe(emailSender, AccountEventType.ACCOUNT_OPENED);
         accountEventManager.subscribe(smsSender, AccountEventType.ALL);
 
-        ServiceFactory serviceFactory = new InMemoryServiceFactory();
+        ServiceFactory serviceFactory = new ProdServiceFactory();
 
         AccountService accountService = serviceFactory.getAccountService();
         accountService.setAccountEventManager(accountEventManager);
