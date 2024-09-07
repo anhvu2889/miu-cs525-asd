@@ -22,10 +22,10 @@ public class Application {
         accountEventManager.subscribe(emailSender, AccountEventType.ACCOUNT_OPENED);
         accountEventManager.subscribe(smsSender, AccountEventType.ALL);
 
-        AccountDAOFactory inMemoryAccountDAOFactory = new InMemoryAccountDAOFactory();
-        AccountDAOFactory mockAccountDAOFactory = new MockAccountDAOFactory();
+        AccountDAOFactory accountDAOFactory = new InMemoryAccountDAOFactory();
+//        AccountDAOFactory accountDAOFactory = new MockAccountDAOFactory();
 
-        AccountDAO accountDAO = inMemoryAccountDAOFactory.createAccountDAO();
+        AccountDAO accountDAO = accountDAOFactory.createAccountDAO();
         AccountService accountService = new AccountServiceImpl(accountDAO);
         accountService.setAccountEventManager(accountEventManager);
 
