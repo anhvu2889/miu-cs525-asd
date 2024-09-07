@@ -1,4 +1,4 @@
-package edu.mum.cs.cs525.labs.skeleton.factory.factorymethod;
+package edu.mum.cs.cs525.labs.skeleton.factory;
 
 import edu.mum.cs.cs525.labs.skeleton.AccountDAO;
 import edu.mum.cs.cs525.labs.skeleton.AccountDAOImpl;

@@ -35,6 +35,9 @@ public class MockAccountDAOImpl implements AccountDAO {
     private Account createMockAccount() {
         Account mockAccount = new Account(MOCK_ACCOUNT_NUMBER);
         Customer mockCustomer = new Customer("Mock customer");
+        mockAccount.deposit(300);
+        mockAccount.withdraw(100);
+        mockAccount.addInterest(20);
         mockAccount.setCustomer(mockCustomer);
         return mockAccount;
     }
