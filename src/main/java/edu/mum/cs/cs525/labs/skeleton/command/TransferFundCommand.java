@@ -22,7 +22,7 @@ public class TransferFundCommand implements Command {
 
     @Override
     public void undo() {
-        toAccount.transferFunds(fromAccount, amount, "Revert transaction: " + description);
+        toAccount.transferFunds(fromAccount, amount, "Revert: " + description);
     }
 
     @Override

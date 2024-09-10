@@ -46,9 +46,11 @@ public class Application {
 
 
         accountService.deposit("4253892", 12450);
-        accountService.transferFunds("4253892", "1263862", 100, "payment of invoice 10232");
+        accountService.transferFunds("4253892", "1263862", 100, "Payment 10232");
         InterestStrategy superDealInterest = new LowIncomePromotionInterestDecorator(new LoyaltyPromotionInterestDecorator(new SavingInterestStrategy()));
         System.out.println(superDealInterest.getDescription());
+        accountService.undo();
+        accountService.redo();
         accountService.setInterestStrategy(superDealInterest);
         accountService.addInterest("4253892");
 
