@@ -20,9 +20,4 @@ public class WithdrawCommand implements Command {
     public void undo() {
         account.deposit(amount);
     }
-
-    @Override
-    public void redo() {
-        execute();
-    }
 }

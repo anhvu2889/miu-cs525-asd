@@ -109,7 +109,7 @@ public class AccountServiceImpl implements AccountService {
     public void redo() {
         if (!redoStack.isEmpty()) {
             Command command = redoStack.pop();
-            command.redo();
+            command.execute();
             undoStack.push(command);
         }
     }

@@ -24,9 +24,4 @@ public class TransferFundCommand implements Command {
     public void undo() {
         toAccount.transferFunds(fromAccount, amount, "Revert: " + description);
     }
-
-    @Override
-    public void redo() {
-        execute();
-    }
 }
