@@ -50,9 +50,7 @@ public class Account {
                 toAccount.getCustomer().getName());
         AccountEntry toEntry = new AccountEntry(amount, description, toAccount.getAccountNumber(),
                 toAccount.getCustomer().getName());
-
         entries.add(fromEntry);
-
         toAccount.addEntry(toEntry);
     }
 
@@ -69,7 +67,7 @@ public class Account {
     }
 
     public void addInterest(double amount) {
-        AccountEntry entry = new AccountEntry(amount, "Add interest", "", "");
+        AccountEntry entry = new AccountEntry(amount, "interest", "", "");
         entries.add(entry);
     }
 

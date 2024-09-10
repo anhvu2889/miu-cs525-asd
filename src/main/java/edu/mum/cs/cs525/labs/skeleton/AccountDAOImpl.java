@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public class AccountDAOImpl implements AccountDAO {
 
-    private static AccountDAOImpl uniqueInstance;
+    private volatile static AccountDAOImpl uniqueInstance;
 
     private AccountDAOImpl() {
 
@@ -13,7 +13,9 @@ public class AccountDAOImpl implements AccountDAO {
 
     public static AccountDAOImpl getInstance() {
         if (uniqueInstance == null) {
-            uniqueInstance = new AccountDAOImpl();
+            synchronized (AccountDAOImpl.class) {
+                uniqueInstance = new AccountDAOImpl();
+            }
         }
         return uniqueInstance;
     }
@@ -25,9 +27,9 @@ public class AccountDAOImpl implements AccountDAO {
     }
 
     public void updateAccount(Account account) {
-        Account accountexist = loadAccount(account.getAccountNumber());
-        if (accountexist != null) {
-            accounts.remove(accountexist); // remove the old
+        Account existAccount = loadAccount(account.getAccountNumber());
+        if (existAccount != null) {
+            accounts.remove(existAccount); // remove the old
             accounts.add(account); // add the new
         }
 
