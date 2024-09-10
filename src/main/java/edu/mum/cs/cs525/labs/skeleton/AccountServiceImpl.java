@@ -92,6 +92,9 @@ public class AccountServiceImpl implements AccountService {
 
     private void executeCommand(Command command) {
         command.execute();
+        if (undoStack.size() > 1000) {
+            undoStack.clear();
+        }
         undoStack.push(command);
         redoStack.clear();
     }
