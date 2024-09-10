@@ -107,8 +107,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void redo() {
-        if (!undoStack.isEmpty()) {
-            Command command = undoStack.pop();
+        if (!redoStack.isEmpty()) {
+            Command command = redoStack.pop();
             command.redo();
             undoStack.push(command);
         }
