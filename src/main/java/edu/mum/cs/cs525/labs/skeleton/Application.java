@@ -33,8 +33,9 @@ public class Application {
         // use account 1;
         accountService.deposit("1263862", 240);
         accountService.setInterestStrategy(new CheckingInterestStrategy());
-        accountService.addInterest("1263862");
         accountService.deposit("1263862", 529);
+        accountService.undo();
+        accountService.redo();
         accountService.withdraw("1263862", 230);
         InterestStrategy specialCheckingInterest = new MilitaryVeteranPromotionInterestDecorator(new CheckingInterestStrategy());
         System.out.println(specialCheckingInterest.getDescription());

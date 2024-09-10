@@ -23,4 +23,8 @@ public interface AccountService {
     void setAccountEventManager(AccountEventManager accountEventManager);
 
     void setInterestStrategy(InterestStrategy interestStrategy);
+
+    void undo();
+
+    void redo();
 }
