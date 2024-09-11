@@ -4,10 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Logger4jAdapter implements AppLogger {
-    private Logger logger;
+    private final Logger logger;
 
     public Logger4jAdapter(Class<?> callerClass) {
-        logger = LogManager.getLogger(Logger4jAdapter.class);
+        logger = LogManager.getLogger(callerClass);
     }
 
     @Override
