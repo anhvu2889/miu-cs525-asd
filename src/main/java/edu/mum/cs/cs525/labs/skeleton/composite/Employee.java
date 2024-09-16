@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 public class Employee extends Hire {
 
     @Override
-    public void accept(Consumer<Hire> action) {
+    public void process(Consumer<Hire> action) {
         action.accept(this);
     }
 

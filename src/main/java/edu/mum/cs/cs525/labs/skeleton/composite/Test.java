@@ -25,8 +25,8 @@ public class Test {
 
         SalaryConsumer salaryConsumer = new SalaryConsumer();
         HireCounterConsumer hireCounterConsumer = new HireCounterConsumer();
-        cto.accept(hireCounterConsumer);
-        cto.accept(salaryConsumer);
+        cto.process(hireCounterConsumer);
+        cto.process(salaryConsumer);
         System.out.println(STR."Count: \{hireCounterConsumer.getCount()}");
         System.out.println(STR."Total salary: \{salaryConsumer.getTotalSalary()}");
     }
