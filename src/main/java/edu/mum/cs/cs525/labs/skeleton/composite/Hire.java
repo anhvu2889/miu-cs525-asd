@@ -22,5 +22,5 @@ public abstract class Hire {
         this.salary = salary;
     }
 
-    public abstract void accept(Consumer<Hire> action);
+    public abstract void process(Consumer<Hire> action);
 }
