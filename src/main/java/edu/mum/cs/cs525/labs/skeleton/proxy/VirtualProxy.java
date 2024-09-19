@@ -6,17 +6,23 @@ import java.lang.reflect.Method;
 
 
 public class VirtualProxy implements InvocationHandler {
-    private Complex complexThing;
+    private Complex complexThingInstance;
+
+    private volatile static VirtualProxy instance;
+
+    private VirtualProxy() {
+
+    }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws InterruptedException {
         try {
-            if (complexThing == null) {
-                complexThing = new ComplexClass();
+            if (complexThingInstance == null) {
+                complexThingInstance = new ComplexClass();
                 System.out.println("Creating complex object");
             }
             if (method.getName().equals("veryComplicatedTask")) {
-                return method.invoke(complexThing, args);
+                return method.invoke(complexThingInstance, args);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
@@ -25,10 +31,16 @@ public class VirtualProxy implements InvocationHandler {
     }
 
     public static Complex getInstance() {
+        if (instance == null) {
+            synchronized (VirtualProxy.class) {
+                instance = new VirtualProxy();
+            }
+        }
+        System.out.println("Creating proxy object");
         return (Complex) java.lang.reflect.Proxy.newProxyInstance(
                 Complex.class.getClassLoader(),
                 new Class[]{Complex.class},
-                new VirtualProxy()
+                instance
         );
     }
 }
