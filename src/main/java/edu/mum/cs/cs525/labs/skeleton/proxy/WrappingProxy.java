@@ -2,11 +2,11 @@ package edu.mum.cs.cs525.labs.skeleton.proxy;
 
 import java.lang.reflect.Proxy;
 
-public class VirtualProxy implements Complex {
+public class WrappingProxy implements Complex {
     private final Complex instance;
 
-    public VirtualProxy() {
-        System.out.println("Creating proxy");
+    public WrappingProxy() {
+        System.out.println("Creating proxy by wrapping virtual proxy");
         instance = (Complex) Proxy.newProxyInstance(
                 Complex.class.getClassLoader(),
                 new Class[]{Complex.class},

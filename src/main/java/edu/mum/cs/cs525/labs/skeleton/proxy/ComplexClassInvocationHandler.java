@@ -23,7 +23,7 @@ public class ComplexClassInvocationHandler implements InvocationHandler {
         if (complexThingInstance == null) {
             synchronized (ComplexClassInvocationHandler.class) {
                 complexThingInstance = new ComplexClass();
-                System.out.println("Creating complex object");
+                System.out.println("Creating real complex object");
             }
         }
         return complexThingInstance;
