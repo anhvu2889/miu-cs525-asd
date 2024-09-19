@@ -5,6 +5,7 @@ public class ComplexClass implements Complex {
         super();
         Thread.sleep(10000);
     }
+
     public void veryComplicatedTask() {
         System.out.println("Very complicated task...");
     }
