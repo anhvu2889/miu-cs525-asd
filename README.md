@@ -1,36 +1,22 @@
-# Computer Professionals Program at MIU (ASD - Advanced Software Design)
+# MIU - ASD (Advanced Software Design) Course Assignments
+
+This repository contains assignments and coursework for the **ASD (Advanced Software Design)** course, part of the graduate Computer Science program at **Maharishi International University (MIU)**.
+
+---
 
 ## Course Overview
-The **ASD (Advanced Software Design)** course explores modern methods and practices for designing high-quality software systems. Students will learn to apply software design patterns, frameworks, and architectures to create scalable and maintainable systems. The course emphasizes multi-level abstractions and advanced design principles.
+The **ASD** course explores modern methods and practices for designing high-quality software systems. Students will learn to apply software design patterns, frameworks, and architectures to create scalable and maintainable systems. The course emphasizes multi-level abstractions and advanced design principles.
 
 ---
 
 ## Topics Covered
-The course covers the following topics:
+The course focuses on the following topics:
 
-1. **Software Design Patterns**  
-   - Creational Patterns  
-   - Structural Patterns  
-   - Behavioral Patterns  
-
-2. **Frameworks and Architectures**  
-   - MVC (Model-View-Controller)  
-   - Microservices Architecture  
-   - Component-Based Design  
-
-3. **Advanced Design Principles**  
-   - SOLID Principles  
-   - Dependency Injection  
-   - Design for Scalability and Maintainability  
-
-4. **Multi-Level Abstractions**  
-   - Layered Architectures  
-   - Domain-Driven Design  
-   - Service-Oriented Design  
-
-5. **Project-Based Learning**  
-   - Case Studies  
-   - Practical Applications through Projects  
+- Software Design Patterns (Creational, Structural, Behavioral)
+- Frameworks and Architectures (MVC, Microservices, Component-Based Design)
+- Advanced Design Principles (SOLID Principles, Dependency Injection, Scalability, Maintainability)
+- Multi-Level Abstractions (Layered Architectures, Domain-Driven Design, Service-Oriented Design)
+- Project-Based Learning (Case Studies, Practical Applications through Projects)
 
 ---
 
@@ -64,9 +50,4 @@ Contributions are welcome! Follow these steps to contribute:
 2. Create a new branch for your feature or bug fix.
 3. Commit your changes with a descriptive message.
 4. Submit a pull request for review.
-
----
-
-## Contact
-For questions or suggestions, please reach out to the course instructor or create an issue in the repository.
 
